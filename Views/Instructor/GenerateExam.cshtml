@@ -1,11 +1,8 @@
-﻿@using Examination_system.Models.View_Models;
+﻿
 @model GenertaeExamModel
 @{
     SelectList courses =
         new SelectList(Model.Courses, "CrsId", "CrsName");//Explicit casting
-}
-@{
-    Layout = "_Layout";
 }
 
 <h1 class="mb-5 text-center">new <span class="text-danger">Exam</span> </h1>
@@ -38,6 +35,12 @@
     </form>
     <br />
 
-    <a href="/instructor/Index" class="btn btn-outline-danger">Back To Login Page</a>
+    <a href="/Login/Index" class="btn btn-outline-danger">Back To Login Page</a>
 
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

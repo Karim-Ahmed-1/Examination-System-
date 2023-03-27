@@ -6,49 +6,78 @@
 }
 
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Index">
 
-            <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
+<section class="py-5" style="background-color: #eee;">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12">
+                <div class="card text-black" style="border-radius: 25px;">
+                    <div class="card-body py-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-5 order-2 order-lg-1">
+                                <p class="text-center h1 fw-bold mb-5  mx-md-4 mt-4">Sign in</p>
+                                <form asp-action="Index">
+
+
+                                    <label asp-for="UserName" class="control-label"></label>
+                                    <input asp-for="UserName" class="form-control" />
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+
+                                    <label asp-for="Password" class="control-label d-block my-2"></label>
+                                    <input asp-for="Password" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                    <div class="form-check my-2">
+                                        <input class="form-check-input" type="radio" name="Type" id="Type" value="true" checked>
+                                        <label class="form-check-label " for="Type">
+                                            Student
+                                        </label>
+                                     </div>   
+                                     <div class="form-check  my-2">
+                                        <input class="form-check-input " type="radio" name="Type" id="Type" value="false">
+                                        <label class="form-check-label" for="Type">
+                                            Instractor
+                                        </label>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <input type="submit" value="Login" class="btn btn-dark mt-5 form-control" />
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-10 col-lg-6  d-flex align-items-center order-1 order-lg-2">
+                                <img src="https://static.vecteezy.com/system/resources/previews/010/925/676/non_2x/online-registration-and-sign-up-concept-young-man-signing-up-or-login-to-online-account-on-smartphone-app-user-interface-secure-login-and-password-vector.jpg"
+                                     class="img-fluid" alt="Sample image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="Type" id="Type" value="true" checked>
-                <label class="form-check-label" for="Type">
-                    Student
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="Type" id="Type" value="false">
-                <label class="form-check-label" for="Type">
-                    Instractor
-                </label>
-            </div>
-
-
-
-
-
-
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
+</section>
 
-<div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div>
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@
 
 
 @section Scripts {
