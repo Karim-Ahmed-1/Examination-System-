@@ -45,8 +45,7 @@
         <div class="container d-flex align-items-center justify-content-between">
 
             <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="./assets/img/logo.png" alt=""> -->
+               
                 <h1>Yummy<span>.</span></h1>
             </a>
 
@@ -230,28 +229,29 @@
 
                 </div>
 
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form p-3 p-md-4">
+               @RenderBody()
+                @*<form action="forms/contact.php" method="post" role="form" class="php-email-form p-3 p-md-4">
                     <div class="row">
                         <div class="col-xl-6 form-group">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="your name" required>
                         </div>
                         <div class="col-xl-6 form-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="your email" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="subject" required>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                        <textarea class="form-control" name="message" rows="5" placeholder="message" required></textarea>
                     </div>
                     <div class="my-3">
-                        <div class="loading">Loading</div>
+                        <div class="loading">loading</div>
                         <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                        <div class="sent-message">your message has been sent. thank you!</div>
                     </div>
-                    <div class="text-center"><button type="submit">Send Message</button></div>
-                </form><!--End Contact Form -->
+                    <div class="text-center"><button type="submit">send message</button></div>
+                </form><*@!--end contact form -->
 
             </div>
         </section><!-- End Contact Section -->
@@ -339,7 +339,7 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>
