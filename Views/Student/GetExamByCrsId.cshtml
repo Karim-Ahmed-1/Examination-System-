@@ -1,0 +1,38 @@
+﻿@model List<Question>
+@{
+    ViewData["Title"] = "GetExamByCrsId";
+    Layout = "_Layout";
+}
+
+<br />
+<br />
+
+table class="table">
+<thead class="thead-dark">
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Question</th>
+        <th scope="col">Marks</th>
+        
+    </tr>
+</thead>
+<tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @item.QuesId </td>
+            <td> @item.QustBody </td>
+            <td> @item.QustMarks </td>
+        </tr>
+    }
+    
+        
+    
+  
+    
+</tbody>
+</table>
+
+
+
+

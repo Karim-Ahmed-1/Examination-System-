@@ -1,0 +1,46 @@
+﻿@model List<Course>
+@{
+    ViewData["Title"] = "GetCourseByStuId";
+    Layout = "_Layout";
+    SelectList Crs = new SelectList(Model, "CrsId", "CrsName");
+
+}
+
+<h1>Select Course to get the Exam</h1>
+
+<div>
+  
+    <select class="form-control" id="SelectedCrs" asp-items="Crs" onchange="GetExamQ()">
+        <option value="0">Select Course</option>
+    </select>
+
+</div>
+
+@section Scripts{
+    <script src="/lib/jquery/dist/jquery.min.js">
+    </script>
+
+    <script>
+        function GetExamQ() {
+
+            
+             var Crs=$("#SelectedCrs").val();
+             console.log(Crs);
+
+            $.ajax({
+                method: "Get",
+                url: "/Student/GetExamByCrsId",
+                data: { "id": Crs },
+
+                success: function (result) {
+
+                    console.log(result);
+
+                }
+            });
+        }
+    </script>
+}
+
+
+

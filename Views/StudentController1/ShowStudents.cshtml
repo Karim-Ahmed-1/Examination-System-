@@ -1,0 +1,44 @@
+﻿@model List<Student>
+
+@{
+    ViewData["Title"] = "ShowStudents";
+    SelectList students = new SelectList(Model, "StdId", "StdName");
+}
+
+<h1>ShowStudents</h1>
+
+<select id="stuSelect" class="form-control" asp-items="students" onchange="GetCourses()">
+
+    <option value="0">---- Select Student ----</option>
+</select>
+
+<br />
+<br />
+
+<select class="form-control" id="crsSelect"></select>
+
+@section scripts{
+    <script src="/lib/jquery/dist/jquery.min.js">
+    </script>
+
+    <script>
+        function GetCourses(){
+            var stuId = $("#stuSelect").val();
+            console.log(stuId);
+            $("#crsSelect").html("";)
+            $.ajax({
+                url: "/Student/GetCourseByStuId",
+                data: { "stuId": stuId },
+
+                success: function (result) {
+
+                    console.log(result);
+                    for(let item of result){
+                        $("#crsSelect").append("<option"+item+"</option>");
+                    }
+
+                }
+            });
+        }
+    </script>
+} 
