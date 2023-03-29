@@ -1,5 +1,7 @@
 ﻿using Examination_system.Models;
+using Examination_system.Models.View_Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -22,8 +24,15 @@ namespace Examination_system.Controllers
 
         public IActionResult GetExamByCrsId(int id)
         {
-            var questions = DB.Questions.FromSql($"sp_get_exam_by_courseId {id}").ToList();
+            Exam Ex=DB.Exams.Where(e=>e.CrsId==id).FirstOrDefault();
 
+            List<Question> questions = DB.Questions.FromSql($"sp_get_questions_by_EId {Ex.ExamId}").ToList();
+
+            List<Choice> test = new List<Choice>();
+            foreach (Question question in questions)
+            {
+                test = DB.Choices.FromSql($"sp_get_choices_by_quesId {question.QuesId}").ToList();
+            }
             return Json(questions);
         }
            public IActionResult Index()
