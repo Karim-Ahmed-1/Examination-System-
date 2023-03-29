@@ -38,8 +38,12 @@
                                             Instractor
                                         </label>
                                     </div>
-
-
+                                    @if (ViewBag.valid == "false")
+                                    {
+                                        <div class="alert alert-danger" role="alert">
+                                            UnValid UserName and Password
+                                        </div>
+                                    }
                                     <div class="form-group">
                                         <input type="submit" value="Login" class="btn btn-dark mt-5 form-control" />
                                     </div>

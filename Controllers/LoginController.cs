@@ -28,11 +28,12 @@ namespace Examination_system.Controllers
                     List<Student> instructors = context.Students.FromSql($"Sp_StudentValidNamePassword {MV.UserName},{MV.Password} ").ToList();
                     if (instructors.Count() > 0 && instructors[0].StdName == MV.UserName && instructors[0].StdPass == MV.Password)
                     {
-
-                      //  return RedirectToAction("Index", "Instructor");
+                        ViewData["valid"] = "true";
+                        //  return RedirectToAction("Index", "Instructor");
                     }
                     else
                     {
+                        ViewData["valid"] = "false";
                         ModelState.AddModelError("Type", "UnValid UserName and Password  ");
                     }
 
@@ -44,11 +45,12 @@ namespace Examination_system.Controllers
                   List<Instructor> instructors = context.Instructors.FromSql($"Sp_InstructorValidNamePassword {MV.UserName},{MV.Password} ").ToList();
                     if (instructors.Count() > 0 && instructors[0].InsName == MV.UserName && instructors[0].InsPass ==MV.Password)
                     {
-
+                        ViewData["valid"] = "true";
                         return RedirectToAction("Index","Instructor");
                     }
                     else
                     {
+                        ViewData["valid"] = "false";
                         ModelState.AddModelError("Type", "UnValid UserName and Password  ");
 
                     }
