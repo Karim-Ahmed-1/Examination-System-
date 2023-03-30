@@ -31,16 +31,9 @@ namespace Examination_system.Controllers
                         ViewData["valid"] = "true";
                          return RedirectToAction("GetCourseByStuId", "Student",new { id = students[0].StdId });
 
-
-          
-
                     }
                     else
-                    {
                         ViewData["valid"] = "false";
-                        ModelState.AddModelError("Type", "UnValid UserName and Password ");
-                    }
-
                 }
                 else
                 {
@@ -53,13 +46,7 @@ namespace Examination_system.Controllers
                         return RedirectToAction("Index","Instructor");
                     }
                     else
-                    {
                         ViewData["valid"] = "false";
-                        ModelState.AddModelError("Type", "UnValid UserName and Password  ");
-
-                    }
-
-
                 }
 			}
 
