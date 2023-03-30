@@ -1,5 +1,5 @@
 ﻿using Examination_system.Models;
-using Examination_system.Models.View_Models;
+using Examination_system.ModelViews;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;

@@ -34,7 +34,7 @@ namespace Examination_system.Controllers
                     else
                     {
                         ViewData["valid"] = "false";
-                        ModelState.AddModelError("Type", "UnValid UserName and Password  ");
+                        ModelState.AddModelError("Type", "UnValid UserName and Password ");
                     }
 
                 }

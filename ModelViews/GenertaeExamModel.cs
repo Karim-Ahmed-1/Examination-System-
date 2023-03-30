@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Examination_system.Models;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace Examination_system.Models.View_Models
+namespace Examination_system.ModelViews
 {
     public class GenertaeExamModel
     {
@@ -17,6 +18,6 @@ namespace Examination_system.Models.View_Models
         public int TF_number { get; set; }
 
 
-        public List<Course>? Courses{ get; set; }
+        public List<Course>? Courses { get; set; }
     }
 }
