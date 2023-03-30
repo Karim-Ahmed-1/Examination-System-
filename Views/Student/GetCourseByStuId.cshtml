@@ -13,6 +13,7 @@
     <select class="form-control" id="SelectedCrs" asp-items="Crs" onchange="GetExamQ()">
         <option value="0">Select Course</option>
     </select>
+    
 
 </div>
 
@@ -22,21 +23,14 @@
 
     <script>
         function GetExamQ() {
-
             
              var Crs=$("#SelectedCrs").val();
              console.log(Crs);
+     
+            window.location.href = '/Student/GetExamByCrsId?id=' + Crs;
 
-            $.ajax({
-                method: "Get",
-                url: "/Student/GetExamByCrsId",
-                data: { "id": Crs },
-                success: function (result) {
 
-                   
-
-                }
-            });
+         
         }
     </script>
 }

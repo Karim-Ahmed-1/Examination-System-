@@ -26,19 +26,14 @@ namespace Examination_system.Controllers
             Exam Ex=context.Exams.Where(e=>e.CrsId==id).FirstOrDefault();
             List<Question> questions = context.Questions.FromSql($"sp_get_questions_by_EId {Ex.ExamId}").ToList();
             List<Choice> test = new List<Choice>();
-            List<ViewExamModel> VM = new List<ViewExamModel>();
+         
 
             ViewExamModel viewExamModel = new ViewExamModel();
             foreach (Question question in questions)
             {
                 test = context.Choices.FromSql($"sp_get_choices_by_quesId {question.QuesId}").ToList();
             }
-            //foreach (Question question in questions)
-            //{
-            //    viewExamModel.QustBody = question.QustBody;
-            //    viewExamModel.Choices = question.Choices.ToList();
-            //    VM.Add(viewExamModel);
-            //}
+           
 
 
             return View(questions);
