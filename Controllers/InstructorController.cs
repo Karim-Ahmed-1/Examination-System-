@@ -40,7 +40,8 @@ namespace Examination_system.Controllers
                     context.SaveChanges();
                 }
 
-                return RedirectToAction("New", newExam.InstId);// Index
+                // return RedirectToAction("New", newExam.InstId);// Index
+                return RedirectToAction("Index", "Login");
             }
             return View("GenerateExam", newExam); 
         }
