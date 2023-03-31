@@ -22,7 +22,7 @@ namespace Examination_system.Controllers
         public IActionResult GenerateExam(GenertaeExamModel newExam)
         {
             newExam.Courses = DB.Courses.ToList();
-            //if (newCrs.Name != null)//server side
+           
             if (ModelState.IsValid == true)
             {
 
@@ -34,7 +34,7 @@ namespace Examination_system.Controllers
 
                 return RedirectToAction("Index");// Index
             }
-            return View("GenerateExam", newExam);//view =New ,Model =newDept "DEpartment
+            return View("GenerateExam", newExam); 
         }
     }
 }
