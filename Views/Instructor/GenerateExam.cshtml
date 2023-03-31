@@ -5,6 +5,67 @@
         new SelectList(Model.Courses, "CrsId", "CrsName");//Explicit casting
 }
 
+src="/Img/exams2.jpg"
+
+
+
+
+<section class="py-5 mb-5 " style="background-color: #eee;">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-10">
+                <div class="card text-black" style="border-radius: 25px;">
+                    <div class="card-body py-md-1">
+                        <div class="row justify-content-center py-4">
+                            <div class="col-md-10 col-lg-5 order-2 order-lg-1">
+                                <p class="text-center h1 fw-bold my-3  mx-md-4">New Exam</p>
+                                <form method="get" asp-action="GenerateExam" asp-controller="Instructor">
+
+                                    <div>
+                                        <label asp-for="MCQ_number" class="mb-1"></label>
+                                        <input asp-for="MCQ_number" class="form-control" />
+                                        <span asp-validation-for="MCQ_number" class="text-danger"></span>
+                                    </div>
+                                    <div>
+
+                                        <label asp-for="TF_number" class="mb-1"></label>
+                                        <input asp-for="TF_number" class="form-control" />
+                                        <span asp-validation-for="TF_number" class="text-danger"></span>
+
+                                    </div>
+                                    <div>
+                                        <label asp-for="CrsId" class="mb-1">Course</label>
+
+                                        <select class="form-control" id="courseSelect" asp-for="CrsId" asp-items="courses">
+                                            <option value="0">--Select Course--</option>
+                                        </select>
+
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <input type="submit" value="Generate Exam" class="btn btn-outline-dark mb-2 form-control"/>
+                                </form>
+                                <a href="/Login/Index" class="text-muted text-center ">Back To Login Page</a>
+                            </div>
+                            <div class="col-md-10 col-lg-6  d-flex align-items-center order-1 order-lg-2">
+                                <img src="/Img/examred.jpg"
+                                     class="img-fluid" alt="Sample image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
 
 <h1 class="mb-5 text-center">new <span class="text-danger">Exam</span> </h1>
 <div style="width:30%; margin-left:auto; margin-right:auto; ">

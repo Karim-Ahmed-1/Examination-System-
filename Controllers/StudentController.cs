@@ -12,13 +12,12 @@ namespace Examination_system.Controllers
     {
 
         IqexamContext context = new IqexamContext();
-        
-
         public IActionResult GetCourseByStuId(int id)
         {
             TempData["St_id"] = id;
             List<Course> crs = context.Courses.FromSql($"Sp_GetStuCoursesByID {id}").ToList();
             return View (crs);
+
         }
 
         public IActionResult GetExamByCrsId(int id, int st_id)

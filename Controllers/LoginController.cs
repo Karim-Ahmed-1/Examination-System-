@@ -43,7 +43,8 @@ namespace Examination_system.Controllers
                     if (instructors.Count() > 0 && instructors[0].InsName == MV.UserName && instructors[0].InsPass ==MV.Password)
                     {
                         ViewData["valid"] = "true";
-                        return RedirectToAction("Index","Instructor");
+                        return RedirectToAction("New","Instructor");
+                        //return RedirectToAction("Index", "Instructor", new { id = instructors[0].InsId });
                     }
                     else
                         ViewData["valid"] = "false";

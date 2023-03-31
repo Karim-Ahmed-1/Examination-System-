@@ -22,7 +22,11 @@ namespace Examination_system.Controllers
         public IActionResult GenerateExam(GenertaeExamModel newExam)
         {
             newExam.Courses = DB.Courses.ToList();
-           
+
+
+           // List<Course> crs = context.Courses.FromSql($"Sp_GetInsCoursesByID {id}").ToList(); 
+
+
             if (ModelState.IsValid == true)
             {
 
