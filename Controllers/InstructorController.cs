@@ -15,15 +15,17 @@ namespace Examination_system.Controllers
             return View();
         }
 
-        public IActionResult New()
+        public IActionResult New(int id)
         {
-            return View("GenerateExam", new GenertaeExamModel() { Courses = DB.Courses.ToList() });
+            List<Course> crs = DB.Courses.FromSql($"Sp_GetInsCoursesByID {id}").ToList();
+            return View("GenerateExam", new GenertaeExamModel() { Courses = crs ,InstId=id});
         }
 
         
         public IActionResult GenerateExam(GenertaeExamModel newExam)
         {
-            newExam.Courses = DB.Courses.ToList();
+            List<Course> crs = DB.Courses.FromSql($"Sp_GetInsCoursesByID {newExam.InstId}").ToList();
+            newExam.Courses = crs;
 
 
            // List<Course> crs = context.Courses.FromSql($"Sp_GetInsCoursesByID {id}").ToList(); 
