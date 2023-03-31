@@ -19,6 +19,8 @@ namespace Examination_system.Controllers
         {
             return View("GenerateExam", new GenertaeExamModel() { Courses = DB.Courses.ToList() });
         }
+
+        
         public IActionResult GenerateExam(GenertaeExamModel newExam)
         {
             newExam.Courses = DB.Courses.ToList();
