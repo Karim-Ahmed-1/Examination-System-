@@ -27,20 +27,14 @@ namespace Examination_system.Controllers
             List<Course> crs = DB.Courses.FromSql($"Sp_GetInsCoursesByID {newExam.InstId}").ToList();
             newExam.Courses = crs;
 
-
-           // List<Course> crs = context.Courses.FromSql($"Sp_GetInsCoursesByID {id}").ToList(); 
-
-
             if (ModelState.IsValid == true)
             {
-
                 using (var context = new IqexamContext())
                 {
                     context.Database.ExecuteSqlInterpolated($"EXEC Sp_Exam_Generation {newExam.CrsId}, {newExam.MCQ_number}, {newExam.TF_number}");
                     context.SaveChanges();
                 }
 
-                // return RedirectToAction("New", newExam.InstId);// Index
                 return RedirectToAction("Index", "Login");
             }
             return View("GenerateExam", newExam); 

@@ -20,3 +20,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.form-check-input:checked {
+    background-color: #aa2828;
+    border-color: #ff0000;
+}
