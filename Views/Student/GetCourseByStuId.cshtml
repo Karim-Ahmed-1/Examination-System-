@@ -1,0 +1,49 @@
+﻿@model List<Course>
+@{
+    ViewData["Title"] = "GetCourseByStuId";
+    Layout = "_Layout";
+    SelectList Crs = new SelectList(Model, "CrsId", "CrsName");
+}
+
+<section class="py-5 mb-5 " style="background-color: #eee;">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-10">
+                <div class="card text-black" style="border-radius: 25px;">
+                    <div class="card-body py-md-1">
+                        <div class="row justify-content-center py-5">
+                            <div class="col-md-10 col-lg-6 mt-2 order-2 order-lg-1">
+                                <p class="text-center h2 fw-bold my-3 text-uppercase  mx-md-4">Select Course </p>
+                                <div>
+                                    <select class="form-select" id="SelectedCrs" asp-items="Crs" onchange="GetExamQ()">
+                                        <option value="0">Select Course</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-10 col-lg-5  d-flex align-items-center order-1 order-lg-2">
+                                <img src="/Img/exams2.jpg" width="300px" height="300px" 
+                                     class="img-fluid" alt="Sample image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script src="/lib/jquery/dist/jquery.min.js">
+    </script>
+
+    <script>
+        function GetExamQ() {
+            var Crs=$("#SelectedCrs").val();
+            window.location.href = '/Student/GetExamByCrsId/' + Crs ;
+        }
+    </script>
+}
+
+
+

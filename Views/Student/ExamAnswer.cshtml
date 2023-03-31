@@ -1,0 +1,28 @@
+﻿@model int
+@{
+    ViewData["Title"] = "ExamAnswer";
+}
+
+<div class="container-fluid m-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 text-center bg-white p-3 rounded-3">
+            <h2>Your Answers are Submitted Successfully</h2>
+            <hr />
+            @if (Model > 60)
+            {
+                <div class="alert alert-success p-5" role="alert">
+                    <h3>Congratulations! You have Passed the Exam</h3>
+                    <h4>Your Grade is: @Model %</h4>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger" role="alert">
+                    <h3>Unfortunately you have failed the Exam</h3>
+                    <h4>Your Grade is: @Model %</h4>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

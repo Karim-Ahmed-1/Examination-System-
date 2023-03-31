@@ -25,7 +25,15 @@ namespace Examination_system.Controllers
                 if (MV.Type )
                 {
 
+                    List<Student> students = context.Students.FromSql($"Sp_StudentValidNamePassword {MV.UserName},{MV.Password} ").ToList();
+                    if (students.Count() > 0 && students[0].StdName == MV.UserName && students[0].StdPass == MV.Password)
+                    {
+                        ViewData["valid"] = "true";
+                         return RedirectToAction("GetCourseByStuId", "Student",new { id = students[0].StdId });
 
+                    }
+                    else
+                        ViewData["valid"] = "false";
                 }
                 else
                 {
@@ -34,15 +42,12 @@ namespace Examination_system.Controllers
                   List<Instructor> instructors = context.Instructors.FromSql($"Sp_InstructorValidNamePassword {MV.UserName},{MV.Password} ").ToList();
                     if (instructors.Count() > 0 && instructors[0].InsName == MV.UserName && instructors[0].InsPass ==MV.Password)
                     {
-
-                        return RedirectToAction();
+                        ViewData["valid"] = "true";
+                        return RedirectToAction("New","Instructor");
+                        //return RedirectToAction("Index", "Instructor", new { id = instructors[0].InsId });
                     }
                     else
-                    {
-                       
-                    }
-
-
+                        ViewData["valid"] = "false";
                 }
 			}
 

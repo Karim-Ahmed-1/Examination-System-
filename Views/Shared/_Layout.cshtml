@@ -3,60 +3,51 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Examination_system</title>
+    <title>@ViewData["Title"] - LearningSystem</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Examination_system.styles.css" asp-append-version="true" />
-
-    <link href="./assets/img/favicon.png" rel="icon">
-    <link href="./assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <link href="./assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="./assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="./assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="./assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="./assets/css/main.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="~/LearningSystem.styles.css" asp-append-version="true" />
 </head>
-<body>
 
 
 
-    <div class="row justify-content-center">
-           
-    <nav class="navbar navbar-dark bg-dark p-2">
-        <a class="navbar-brand text-danger" asp-area="" asp-controller="Login" asp-action="Index">
-            <img src="assets/img/images-removebg-preview (1).png" width="50" height="60" class="d-inline-block align-top" alt="">
-         
-        </a>
-    </nav>
 
+
+
+
+
+
+
+
+
+
+<body style="margin-bottom: 0px;">
+
+
+
+    <div class="row justify-content-center  mb-0">
+
+        <nav class="navbar navbar-expand-md navbar-dark mb-0 bg-dark ">
+            <a class="navbar-brand text-danger mx-5" asp-area="" asp-controller="Login" asp-action="Index">
+                <img src="/assets/img/images-removebg-preview (1).png" width="50" height="50" class="d-inline-block align-top mx-5" alt="">
+
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
 
     </div>
-    <section class="page-section" id="contact">
-        <div class="container">
-        
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
-            
-            <!-- Contact Section Form-->
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-xl-7">
-
                         @RenderBody()
-                   
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Examination_system <span>Team 5 </span>
+                  
+    <footer class="border-top fixed-bottom   footer text-light bg-dark p-3 mb-0">
+        <div class="container"
+            <span class="text-danger"> &copy;<span></span> 2023 - Examination_system <span class="text-danger">Team 5 </span>
         </div>
     </footer>
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

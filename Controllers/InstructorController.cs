@@ -1,5 +1,5 @@
 ﻿using Examination_system.Models;
-using Examination_system.Models.View_Models;
+using Examination_system.ModelViews;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +24,11 @@ namespace Examination_system.Controllers
         public IActionResult GenerateExam(GenertaeExamModel newExam)
         {
             newExam.Courses = DB.Courses.ToList();
-            //if (newCrs.Name != null)//server side
+
+
+           // List<Course> crs = context.Courses.FromSql($"Sp_GetInsCoursesByID {id}").ToList(); 
+
+
             if (ModelState.IsValid == true)
             {
 
@@ -36,7 +40,7 @@ namespace Examination_system.Controllers
 
                 return RedirectToAction("Index");// Index
             }
-            return View("GenerateExam", newExam);//view =New ,Model =newDept "DEpartment
+            return View("GenerateExam", newExam); 
         }
     }
 }
